@@ -8,9 +8,9 @@ export class WebconfService {
   constructor() { }
   Grid = {
     'display':'grid',
-    'grid-template-rows': 'repeat(20, 5%)',
-    'grid-template-columns': 'repeat(20, 5%)',
-    'height':'100%',
+    'grid-template-rows': 'repeat(20, 1fr)',
+    'grid-template-columns': 'repeat(20, 1fr)',
+    'height':'100vh',
     'width':'100%'
   }
   Presets = [
@@ -18,9 +18,9 @@ export class WebconfService {
       name: 'test',
       style: {
         'display':'grid',
-        'grid-template-rows': 'repeat(20, 5%)',
-        'grid-template-columns': 'repeat(20, 5%)',
-        'height':'100%',
+        'grid-template-rows': 'repeat(20, 1fr)',
+        'grid-template-columns': 'repeat(20, 1fr)',
+        'height':'100vh',
         'width':'100%'
       },
       activeElements:[],
@@ -30,10 +30,10 @@ export class WebconfService {
       name: 'default',
       style: {
         'display':'grid',
-        'grid-template-rows': 'repeat(20, 5%)',
-        'grid-template-columns': 'repeat(20, 5%)',
+        'grid-template-rows': 'repeat(20, 1fr)',
+        'grid-template-columns': 'repeat(20, 1fr)',
         'background-color':'gray',
-        'height':'100%',
+        'height':'100vh',
         'width':'100%'
       },
       activeElements:['title', 'paragraphs', 'tldr', 'meta'],
@@ -92,10 +92,10 @@ export class WebconfService {
       name: 'default2',
       style: {
         'display':'grid',
-        'grid-template-rows': 'repeat(20, 5%)',
-        'grid-template-columns': 'repeat(20, 5%)',
+        'grid-template-rows': 'repeat(20, 1fr)',
+        'grid-template-columns': 'repeat(20, 1fr)',
         'background-color':'gray',
-        'height':'100%',
+        'height':'100vh',
         'width':'100%'
       },
       activeElements:['title', 'paragraphs', 'tldr'],
@@ -131,10 +131,10 @@ export class WebconfService {
       name: 'dnevnik',
       style: {
         'display':'grid',
-        'grid-template-rows': 'repeat(20, 5%)',
-        'grid-template-columns': 'repeat(20, 5%)',
+        'grid-template-rows': 'repeat(20, 1fr)',
+        'grid-template-columns': 'repeat(20, 1fr)',
         'background-color':'white',
-        'height':'100%',
+        'height':'100vh',
         'width':'100%'
       },
       activeElements:[],

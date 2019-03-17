@@ -52,7 +52,7 @@
                 <span class="buttons">
                     <button (click)="toggleRename()">Rename</button>
                     <button (click)="toggleEditor()">Editor</button>
-                    <button (click)="toggleArticle()">Article</button>
+                    <!-- <button (click)="toggleArticle()">Article</button> -->
                     <button (click)="toggleDelete()">Delete</button>
                 </span>
 
@@ -101,6 +101,6 @@
 
 <div class="right">
 
-    <app-webpage *ngIf="consoleCurrent == 0" [selectedPreset] = "selectedPreset" [editorMode] = "editorMode" [insertDiv] = "insertDiv"></app-webpage>
-    <app-articles-manager *ngIf="consoleCurrent == 2" [selectedArticle] = "selectedArticle" [selectedArticleIndex] = 'selectedArticleIndex'></app-articles-manager>
+    <app-webpage *ngIf="consoleCurrent == 0 && selectedPreset!==null" [selectedPreset] = "selectedPreset" [editorMode] = "editorMode" [insertDiv] = "insertDiv"></app-webpage>
+    <app-articles-manager *ngIf="consoleCurrent == 2 && selectedArticle!==null" [selectedArticle] = "selectedArticle" [selectedArticleIndex] = 'selectedArticleIndex'></app-articles-manager>
 </div>

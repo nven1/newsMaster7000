@@ -38,7 +38,6 @@ export class PageLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.presets);
   }
 
   selectItem(i) {
@@ -54,12 +53,13 @@ export class PageLayoutComponent implements OnInit {
     this.detailView = true;
   }
   toListView() {
-    this.selectedPreset = undefined;
+    this.scratch();
     this.listView = true;
     this.detailView = false;
   }
 
   consoleMode() {
+    this.scratch();
     this.listView=true; this.detailView=false;
     (this.consoleCurrent===2) 
       ? this.consoleCurrent=0
@@ -82,6 +82,15 @@ export class PageLayoutComponent implements OnInit {
   }
   toggleDelete() {
     (this.detailMode !== this.detailModes[4]) ? this.detailMode = this.detailModes[4] : this.detailMode = this.detailModes[0];
+  }
+
+  scratch() {
+    this.selectedArticle = null;
+    this.selectedPreset = null;
+    this.selectedArticleIndex = null;
+    this.editorMode = false;
+    this.insertDiv = null;
+    this.detailMode = this.detailModes[0];
   }
 
 }

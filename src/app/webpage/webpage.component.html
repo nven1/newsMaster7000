@@ -1,4 +1,4 @@
-<ng-container *ngIf="!editorMode">
+<ng-container *ngIf="!editorMode && selectedPreset!==null">
   <div class='wrapper' [ngStyle]="getPresetStyle()">
       <ng-container *ngFor = "let div of divs">
         <div 
@@ -40,7 +40,7 @@
       
     </div>
 </ng-container>
-<ng-container *ngIf="editorMode">
+<ng-container *ngIf="editorMode && selectedPreset!==null">
   <div class="grid" [ngStyle]="setGrid()" #grid>
     <div 
       class='tile' 
@@ -52,7 +52,7 @@
       >
     </div>
 
-    <div *ngFor="let div of wcs.Presets[this.selectedPreset].divs" [ngStyle]="div.style" [class]="div.class" [id]="div.idhttps://github.com/nven1/newsMaster6000.git">
+    <div *ngFor="let div of wcs.Presets[this.selectedPreset].divs" [ngStyle]="div.style" [class]="div.class" [id]="div.id">
         <ng-container *ngIf="div.class == 'paragraphs'">
           <p *ngFor="let p of articles[div.class]">{{p}}</p>
         </ng-container>

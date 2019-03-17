@@ -47,13 +47,16 @@ export class WebpageComponent implements OnInit, OnChanges {
       if(changes.insertDiv) {
         if (this.wcs.Presets[this.selectedPreset].activeElements.includes(changes.insertDiv.currentValue)) {
           document.getElementById(changes.insertDiv.currentValue).style.border = '1px solid black';
-         /*  this.presets[this.selectedPreset].divs[changes.insertDiv.currentValue] */
         }
         else {
           this.newElement = true;
         }
   
       }
+/*       if(changes.selectedPreset) {
+        this.editorMode = false;
+        this.insertDiv = null;
+      } */
     }
 
     

@@ -17,7 +17,7 @@
         height: 80vh;
         margin: 5vh 2vw;
         display: grid;
-        grid-template-rows: 10% 90%;
+        grid-template-rows: 1fr 9fr;
 
         .layoutConsole {
             border-bottom: 1px solid rgba(0, 0, 0, 0.11);
@@ -66,8 +66,9 @@
 
         }
         .details {
+            height: 100%;
             display: grid;
-            grid-template-rows: 10% 10% 80%;
+            grid-template-rows: 1fr 1fr 8fr;
             box-shadow: 0 5px 5px -5px rgba(51, 51, 51, 0.521);
             .back {
                 @extend %stripButton;
@@ -79,7 +80,7 @@
             }
             .buttons {
                 display: grid;
-                grid-template-columns: repeat(4,25%);
+                grid-template-columns: repeat(3,1fr);
                 border-bottom: 1px solid rgba(0, 0, 0, 0.11);
             }
             
