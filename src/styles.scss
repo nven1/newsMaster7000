@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+$mg : #517C81;
+
+%stripButton {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    &:hover {
+        opacity: .8;
+    }
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    --mg: #517C81;
+}
+
+.nzfsc {
+    height: 100%;
+    width: 100%;
+    display: grid;
+}
+
+.nzFlexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nzGridCenter {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+

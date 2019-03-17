@@ -1,0 +1,94 @@
+@import "../../styles.scss";
+:host {
+    height: 100vh;
+    width: 100vw;
+    background-color:rgb(245, 245, 245);
+
+    display: grid;
+    grid-template-columns: 30vw 70vw;
+}
+
+.left {
+    display: grid;
+    grid-template-rows: 10vh 90vh;
+
+    .layouts {
+        background-color: white;
+        height: 80vh;
+        margin: 5vh 2vw;
+        display: grid;
+        grid-template-rows: 10% 90%;
+
+        .layoutConsole {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+            background-color: rgb(255, 255, 255);
+            
+            button {
+                @extend %stripButton;
+                width: 100%;
+                height: 100%;
+                color: $mg;
+                font-size: 1.2em;
+            }
+        }
+        .list {
+            background-color: rgb(252, 252, 252);
+            height: 100%;
+            display: grid;
+            ul {
+                margin: 2vh 0vh;
+                padding: 0;
+                list-style-type: none;
+
+                li {
+                    @extend %stripButton;
+                    
+                    padding: 1vw 2vw;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+                    &:hover {
+                        opacity: .8;
+                        background-color: rgb(255, 255, 255);
+                    }
+                }
+            }
+            .newItem {
+                @extend %stripButton;
+                    
+                padding: 1vw 2vw;
+                align-self: flex-end;
+                text-align: center;
+                color: $mg;
+                font-weight: 600;
+                z-index: 999;
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+        }
+        .details {
+            display: grid;
+            grid-template-rows: 10% 10% 80%;
+            box-shadow: 0 5px 5px -5px rgba(51, 51, 51, 0.521);
+            .back {
+                @extend %stripButton;
+                width: 100%;
+                height: 100%;
+                color: $mg;
+                font-size: 1.2em;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+            }
+            .buttons {
+                display: grid;
+                grid-template-columns: repeat(4,25%);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+            }
+            
+            
+        }
+    }
+}
+
+
+.right {
+    background-color: white;
+}

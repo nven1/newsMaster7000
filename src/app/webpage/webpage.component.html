@@ -1,0 +1,69 @@
+<ng-container *ngIf="!editorMode">
+  <div class='wrapper' [ngStyle]="getPresetStyle()">
+      <ng-container *ngFor = "let div of divs">
+        <div 
+          [id] = 'div.id' 
+          [class]="div.class" 
+          [ngStyle] = "div.style" 
+          (click)="selectDiv($event)"
+          [ngClass]="{'nzFlexCenter': div.class == 'title'}"
+        >
+
+            <ng-container *ngIf="div.class == 'paragraphs'">
+              <p *ngFor="let p of articles[div.class]">{{p}}</p>
+            </ng-container>
+
+            <ng-container *ngIf="div.class == 'tldr'">
+              <ul>
+                <li *ngFor="let tldr of articles[div.class]"> {{tldr}} </li>
+              </ul>
+            </ng-container>
+
+            <ng-container *ngIf="div.class == 'meta'">
+                <ul>
+                  <li *ngFor="let tag of articles.tags"> {{tag}} </li>
+                </ul>
+                <span>Category: {{articles.category}}</span> <br>
+                <span>Author: {{articles.author}}</span> <br>
+                <span>Date: {{articles.date}}</span> <br>
+            </ng-container>
+
+            <ng-container *ngIf="div.class == 'title'" >
+              <h3 class="nzFlexCenter">{{articles.title}}</h3>
+            </ng-container>
+            
+            
+<!--           {{articles[div.class]}}
+          {{div.class}} -->
+        </div>
+      </ng-container>
+      
+    </div>
+</ng-container>
+<ng-container *ngIf="editorMode">
+  <div class="grid" [ngStyle]="setGrid()" #grid>
+    <div 
+      class='tile' 
+      *ngFor="let tile of Grid; let i=index" 
+      (mousedown) = "tileDragStart($event)"
+      (mouseover) = "tileDragOver($event)"
+      [ngStyle]="{'grid-area': tile.gridArea}"
+      
+      >
+    </div>
+
+    <div *ngFor="let div of wcs.Presets[this.selectedPreset].divs" [ngStyle]="div.style" [class]="div.class" [id]="div.idhttps://github.com/nven1/newsMaster6000.git">
+        <ng-container *ngIf="div.class == 'paragraphs'">
+          <p *ngFor="let p of articles[div.class]">{{p}}</p>
+        </ng-container>
+      
+<!--       {{articles[div.class]}}
+      {{div.class}} -->
+    </div>
+
+    <div class="temp" #temp *ngIf="selection" style="background-color:black; color:white;">
+      <button (click)="setDiv()" *ngIf="dragMode == 2 && sizeNewDivOK" class="addButton">Set as {{insertDiv}}</button>
+    </div>
+
+  </div>
+</ng-container>

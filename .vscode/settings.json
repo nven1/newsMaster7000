@@ -1,0 +1,6 @@
+{
+    "html-css-class-completion.enableEmmetSupport": true,
+    "editor.tabCompletion": "onlySnippets",
+    "html-css-class-completion.includeGlobPattern": "**/*.{css,html}",
+    "html-css-class-completion.includeGlobPattern": ""
+}
