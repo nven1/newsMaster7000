@@ -26,7 +26,7 @@ export class PageLayoutComponent implements OnInit {
   /* pokazuje detalje itema iz liste */
   detailView = false;
 
-  detailModes = ['default', 'rename', 'editor', 'article', 'delete'];
+  detailModes = ['default', 'settings'];
   detailMode = this.detailModes[0];
 
   editorMode = false;
@@ -51,6 +51,7 @@ export class PageLayoutComponent implements OnInit {
     }
     this.listView = false;
     this.detailView = true;
+    this.editorMode = true;
   }
   toListView() {
     this.scratch();
@@ -70,18 +71,8 @@ export class PageLayoutComponent implements OnInit {
     this.presets.push({name:'newPreset'});
   }
 
-  toggleRename() {
+  toggleSettings() {
     (this.detailMode !== this.detailModes[1]) ? this.detailMode = this.detailModes[1] : this.detailMode = this.detailModes[0];
-  }
-  toggleEditor() {
-    (this.detailMode !== this.detailModes[2]) ? this.detailMode = this.detailModes[2] : this.detailMode = this.detailModes[0];
-    this.editorMode = !this.editorMode;
-  }
-  toggleArticle() {
-    (this.detailMode !== this.detailModes[3]) ? this.detailMode = this.detailModes[3] : this.detailMode = this.detailModes[0];
-  }
-  toggleDelete() {
-    (this.detailMode !== this.detailModes[4]) ? this.detailMode = this.detailModes[4] : this.detailMode = this.detailModes[0];
   }
 
   scratch() {
@@ -91,6 +82,17 @@ export class PageLayoutComponent implements OnInit {
     this.editorMode = false;
     this.insertDiv = null;
     this.detailMode = this.detailModes[0];
+  }
+
+  elementClick(el) {
+    this.insertDiv = el;
+  }
+
+  checkExist(el) {
+    let ret;
+
+    (this.wcs.Presets[this.selectedPreset].activeElements.includes(el)) ? ret = 'exist' : ret = 'notExist';
+    return ret;
   }
 
 }

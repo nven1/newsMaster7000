@@ -45,56 +45,65 @@
         <ng-container *ngIf="detailView && consoleCurrent == 0 "> <!-- PRESET DETAIL -->
             <div class='details'>
 
-                <button class="back" (click) = "toListView()">
-                    {{presets[selectedPreset].name}}
-                </button>
-
-                <span class="buttons">
-                    <button (click)="toggleRename()">Rename</button>
-                    <button (click)="toggleEditor()">Editor</button>
-                    <!-- <button (click)="toggleArticle()">Article</button> -->
-                    <button (click)="toggleDelete()">Delete</button>
-                </span>
+                <div class="back">
+                    <button class="icon" (click) = "toListView()"><i class="fa fa-chevron-left"></i></button>
+                    <button (click) = "toListView()" >{{presets[selectedPreset].name}}</button>
+                    <button class="icon" (click) = "toggleSettings()"><i class="fa fa-cog"></i></button>
+                </div>
 
                 <ng-container *ngIf="detailMode == 'default'">
-                    <div>
-                        <span>ayyy</span>
+                    <div class="elementList">
+                        <button 
+                            (click)="elementClick('title')" 
+                            [ngClass]="checkExist('title')"
+                        >
+                            Title
+                        </button>
+
+                        <button 
+                            (click)="elementClick('shortDescription')"
+                            [ngClass]="checkExist('shortDescription')"
+                        >
+                            Short Description
+                        </button>
+                        <button 
+                            (click)="elementClick('tldr')"
+                            [ngClass]="checkExist('tldr')"
+                        >
+                            TL;DR
+                        </button>
+                        <button 
+                            (click)="elementClick('paragraphs')"
+                            [ngClass]="checkExist('paragraphs')"
+                        >
+                            Paragraphs
+                        </button>
+                        <button 
+                            (click)="elementClick('gallery')"
+                            [ngClass]="checkExist('gallery')"
+                        >
+                            Gallery
+                        </button>
+                        <button 
+                            (click)="elementClick('meta')"
+                            [ngClass]="checkExist('meta')"
+                        >
+                            Meta
+                        </button>
                     </div>
                 </ng-container>
 
-                <ng-container *ngIf="detailMode == 'rename'">
+                <ng-container *ngIf="detailMode == 'settings'">
                     <div>
                         <input type="text" [(ngModel)] = 'presets[selectedPreset].name'>
                         <button>Save</button>
                     </div>
-                </ng-container>
-
-                <ng-container *ngIf="detailMode == 'editor'">
-                    <div>
-                        <button (click)="insertDiv = 'title'" >Title</button>
-                        <button (click)="insertDiv = 'shortDescription'">Short Description</button>
-                        <button (click)="insertDiv = 'tldr'">TL;DR</button>
-                        <button (click)="insertDiv = 'paragraphs'">Paragraphs</button>
-                        <button (click)="insertDiv = 'gallery'">Gallery</button>
-                        <button (click)="insertDiv = 'meta'">Meta</button>
-                    </div>
-                </ng-container>
-
-                <ng-container *ngIf="detailMode == 'article'">
-                    <div>
-                        yyy
-                    </div>
-                </ng-container>
-
-                <ng-container *ngIf="detailMode == 'delete'">
                     <div>
                         <span>delete me ayyy</span>
                     </div>
                 </ng-container>
-
             </div>
         </ng-container>
-        
     </div>
 </div>
 

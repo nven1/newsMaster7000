@@ -13,7 +13,7 @@ export class WebconfService {
     'height':'100vh',
     'width':'100%'
   }
-  Presets = [
+  Presets: any = [
     {
       name: 'test',
       style: {

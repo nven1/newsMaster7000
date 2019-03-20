@@ -52,10 +52,35 @@
       >
     </div>
 
-    <div *ngFor="let div of wcs.Presets[this.selectedPreset].divs" [ngStyle]="div.style" [class]="div.class" [id]="div.id">
+    <div 
+      *ngFor="let div of wcs.Presets[this.selectedPreset].divs" 
+      [ngStyle]="div.style" 
+      [class]="div.class" 
+      [id]="div.id"
+      [ngClass]="{'nzFlexCenter': div.class == 'title'}"
+    >
         <ng-container *ngIf="div.class == 'paragraphs'">
-          <p *ngFor="let p of articles[div.class]">{{p}}</p>
-        </ng-container>
+            <p *ngFor="let p of articles[div.class]">{{p}}</p>
+          </ng-container>
+          
+          <ng-container *ngIf="div.class == 'tldr'">
+            <ul>
+              <li *ngFor="let tldr of articles[div.class]"> {{tldr}} </li>
+            </ul>
+          </ng-container>
+          
+          <ng-container *ngIf="div.class == 'meta'">
+              <ul>
+                <li *ngFor="let tag of articles.tags"> {{tag}} </li>
+              </ul>
+              <span>Category: {{articles.category}}</span> <br>
+              <span>Author: {{articles.author}}</span> <br>
+              <span>Date: {{articles.date}}</span> <br>
+          </ng-container>
+          
+          <ng-container *ngIf="div.class == 'title'" >
+            <h3 class="nzFlexCenter">{{articles.title}}</h3>
+          </ng-container>
       
 <!--       {{articles[div.class]}}
       {{div.class}} -->
