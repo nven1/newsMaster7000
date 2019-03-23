@@ -95,13 +95,22 @@
             .elementList {
                 display: grid;
                 grid-auto-rows: 5vh;
-                padding-top: 1vh;
-                button {
-                    @extend %stripButton;
-                    color: white;
-                    font-size: 1em;
+                padding: 1vh 0 0 0;
+                div {
                     border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+                    display: grid;
+                    grid-template-columns: 1fr 10% 10% 10% 5%;
+                    button {
+                        @extend %stripButton;
+                        color: white;
+                        font-size: 1em;
+                        
+                        text-align: left;
+                        padding: 0 0 0 1vw;
+                    }
                 }
+
+
                 
             }
             

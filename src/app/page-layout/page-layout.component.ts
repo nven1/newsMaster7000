@@ -12,6 +12,7 @@ export class PageLayoutComponent implements OnInit {
   consoleOptions = ['Presets','Components', 'Articles']
   consoleCurrent = 0;
 
+
   /* PRESETS */
   selectedPreset;
   presets = [];

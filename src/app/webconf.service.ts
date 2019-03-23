@@ -5,6 +5,34 @@ import { Injectable } from '@angular/core';
 })
 export class WebconfService {
 
+  /* elementTypes = ['title', 'tldr', 'shortDescription', 'paragraphs', 'gallery', 'meta']; */
+  elements = [
+    {
+      id:'title',
+      title:'Title'
+    },
+    {
+      id:'tldr',
+      title:'TL;DR'
+    },
+    {
+      id:'shortDescription',
+      title:'Short Description'
+    },
+    {
+      id:'paragraphs',
+      title:'Paragraphs'
+    },
+    {
+      id:'gallery',
+      title:'Gallery'
+    },
+    {
+      id:'meta',
+      title:'Meta'
+    },
+  ]
+
   constructor() { }
   Grid = {
     'display':'grid',

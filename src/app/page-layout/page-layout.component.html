@@ -53,43 +53,19 @@
 
                 <ng-container *ngIf="detailMode == 'default'">
                     <div class="elementList">
-                        <button 
-                            (click)="elementClick('title')" 
-                            [ngClass]="checkExist('title')"
+                        <div 
+                            class="element"
+                            *ngFor="let element of wcs.elements"
+                            [ngClass]="checkExist(element.id)"
                         >
-                            Title
-                        </button>
+                            <button (click)="elementClick(element.id)" >
+                                {{element.title}}
+                            </button> 
+                            <button><i class="fas fa-tint"></i></button>
+                            <button><i class="fas fa-expand-arrows-alt"></i></button>
+                            <button><i class="fas fa-times-circle"></i></button>
+                        </div>
 
-                        <button 
-                            (click)="elementClick('shortDescription')"
-                            [ngClass]="checkExist('shortDescription')"
-                        >
-                            Short Description
-                        </button>
-                        <button 
-                            (click)="elementClick('tldr')"
-                            [ngClass]="checkExist('tldr')"
-                        >
-                            TL;DR
-                        </button>
-                        <button 
-                            (click)="elementClick('paragraphs')"
-                            [ngClass]="checkExist('paragraphs')"
-                        >
-                            Paragraphs
-                        </button>
-                        <button 
-                            (click)="elementClick('gallery')"
-                            [ngClass]="checkExist('gallery')"
-                        >
-                            Gallery
-                        </button>
-                        <button 
-                            (click)="elementClick('meta')"
-                            [ngClass]="checkExist('meta')"
-                        >
-                            Meta
-                        </button>
                     </div>
                 </ng-container>
 
