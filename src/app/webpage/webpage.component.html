@@ -55,9 +55,11 @@
     <div 
       *ngFor="let div of wcs.Presets[this.selectedPreset].divs" 
       [ngStyle]="div.style" 
+      class="customDiv"
       [class]="div.class" 
       [id]="div.id"
       [ngClass]="{'nzFlexCenter': div.class == 'title'}"
+      (click)="onDivClick(div)"
     >
         <ng-container *ngIf="div.class == 'paragraphs'">
             <p *ngFor="let p of articles[div.class]">{{p}}</p>
@@ -89,6 +91,10 @@
     <div class="temp" #temp *ngIf="selection" style="background-color:black; color:white;">
       <button (click)="setDiv()" *ngIf="dragMode == 2 && sizeNewDivOK" class="addButton">Set as {{insertDiv}}</button>
     </div>
+
+<!--     <div class="divOverlay" #divOverlay *ngIf="!newElement">
+      ayyyy
+    </div> -->
 
   </div>
 </ng-container>

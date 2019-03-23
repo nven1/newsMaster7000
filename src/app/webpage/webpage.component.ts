@@ -17,12 +17,13 @@ export class WebpageComponent implements OnInit, OnChanges {
 
   @ViewChild('temp') temp:ElementRef;
   @ViewChild('elementMenu') elementMenu:ElementRef;
+  @ViewChild('divOverlay') divOverlay:ElementRef;
 
   articles;
 
 
-  dragMode = 0;
-  newElement;
+  dragMode = 0;  // 0 not dragging, 1 currently dragging, 2 mouseup, drag finished, create div
+  newElement = false;  // when clicked on an element not yet existing
 
   sizeNewDivOK;
   
@@ -45,12 +46,16 @@ export class WebpageComponent implements OnInit, OnChanges {
       this.divs = this.presets[this.selectedPreset].divs;
 
       if(changes.insertDiv) {
+        this.dragMode = 0;
+        this.selection = false;
         if (this.wcs.Presets[this.selectedPreset].activeElements.includes(changes.insertDiv.currentValue)) {
-          document.getElementById(changes.insertDiv.currentValue).style.border = '1px solid black';
+          /* document.getElementById(changes.insertDiv.currentValue).style.border = '1px solid black'; */
+          this.newElement = false;
         }
         else {
           this.newElement = true;
         }
+        console.log(this.insertDiv +' new: '+ this.newElement)
   
       }
 /*       if(changes.selectedPreset) {
@@ -128,9 +133,6 @@ export class WebpageComponent implements OnInit, OnChanges {
       } else {
         this.temp.nativeElement.style.backgroundColor = 'red';
       }   
-    
-
-
     }
 
   }
@@ -173,6 +175,13 @@ export class WebpageComponent implements OnInit, OnChanges {
     this.insertDiv = undefined;
     this.newElement = null;
     this.sizeNewDivOK = null;
+  }
+
+  onDivClick(div) {
+    console.log(div);
+    this.divOverlay.nativeElement.style.gridArea = div.style['grid-area'];
+    this.divOverlay.nativeElement.style.backgroundColor = 'blue';
+    console.log(this.divOverlay.nativeElement.style.gridArea);
   }
 
 }
