@@ -61,9 +61,12 @@
                             <button (click)="elementClick(element.id)" >
                                 {{element.title}}
                             </button> 
-                            <button><i class="fas fa-tint"></i></button>
-                            <button><i class="fas fa-expand-arrows-alt"></i></button>
-                            <button><i class="fas fa-times-circle"></i></button>
+                            <button (click)="elementStyle(element.id)"><i class="fas fa-tint"></i></button>
+                            <button (click)="elementResize(element.id)">
+                                <i *ngIf="resizeMode && element.id == insertDiv" class="fa fa-undo"></i>
+                                <i *ngIf="!resizeMode || element.id != insertDiv" class="fas fa-expand-arrows-alt"></i>
+                            </button>
+                            <button (click)="elementDelete(element.id)"><i class="fas fa-times-circle"></i></button>
                         </div>
 
                     </div>

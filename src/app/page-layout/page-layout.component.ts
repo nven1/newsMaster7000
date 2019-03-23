@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { WebconfService } from '../webconf.service';
 import { DataService } from '../data.service';
 
@@ -31,6 +31,7 @@ export class PageLayoutComponent implements OnInit {
   detailMode = this.detailModes[0];
 
   editorMode = false;
+  resizeMode = false;
   insertDiv = null;
 
   constructor(private wcs: WebconfService, private ss: DataService) {
@@ -40,6 +41,13 @@ export class PageLayoutComponent implements OnInit {
 
   ngOnInit() {
   }
+/*   ngOnChanges(changes) {
+    console.log('ayy');
+    if(changes.insertDiv) {
+      
+      this.resizeMode = false;
+    }
+  } */
 
   selectItem(i) {
     if (this.consoleCurrent == 0) {
@@ -99,6 +107,7 @@ export class PageLayoutComponent implements OnInit {
   }
 
   elementClick(el) {
+    this.resizeMode = false;
     if (this.insertDiv === null) { this.insertDiv = el; }
     else if (this.insertDiv === el) { this.insertDiv = null}
     else { this.insertDiv = el }
@@ -115,6 +124,20 @@ export class PageLayoutComponent implements OnInit {
 
   insertDivUpdate(event) {
     this.insertDiv = event;
+  }
+  elementDelete(el) {
+    for (let i=0; i<this.wcs.Presets[this.selectedPreset].divs.length; i++) {
+      if (this.wcs.Presets[this.selectedPreset].divs[i].id === el) {
+        this.wcs.Presets[this.selectedPreset].divs.splice(i, 1);
+        this.wcs.Presets[this.selectedPreset].activeElements.splice(i, 1);
+        this.insertDiv = null;
+      }
+    }
+  }
+  elementResize(el) {
+    this.insertDiv = el;
+    this.resizeMode = !this.resizeMode;
+
   }
 
 }
