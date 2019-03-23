@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener, ElementRef, OnChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, HostListener, ElementRef, OnChanges, ViewChild, Output, EventEmitter } from '@angular/core';
 import { WebconfService } from '../webconf.service';
 import { DataService } from '../data.service';
 
@@ -14,6 +14,8 @@ export class WebpageComponent implements OnInit, OnChanges {
   @Input() selectedPreset;
   @Input() editorMode;
   @Input() insertDiv;
+
+  @Output() insertDivUpdate = new EventEmitter<string>();
 
   @ViewChild('temp') temp:ElementRef;
   @ViewChild('elementMenu') elementMenu:ElementRef;
@@ -55,8 +57,6 @@ export class WebpageComponent implements OnInit, OnChanges {
         else {
           this.newElement = true;
         }
-        console.log(this.insertDiv +' new: '+ this.newElement)
-  
       }
 /*       if(changes.selectedPreset) {
         this.editorMode = false;
@@ -138,10 +138,7 @@ export class WebpageComponent implements OnInit, OnChanges {
   }
   @HostListener('mouseup', ['$event'])
   tileDragEnd(event) {
-    this.dragMode = 2;
-    /* this.mouseX = event.x;
-    this.mouseY = event.y; */
-    
+    (this.dragMode = 1) ? this.dragMode = 2:'';
   }
 
   createGrid(a,b) {
@@ -177,11 +174,11 @@ export class WebpageComponent implements OnInit, OnChanges {
     this.sizeNewDivOK = null;
   }
 
-  onDivClick(div) {
-    console.log(div);
-    this.divOverlay.nativeElement.style.gridArea = div.style['grid-area'];
-    this.divOverlay.nativeElement.style.backgroundColor = 'blue';
-    console.log(this.divOverlay.nativeElement.style.gridArea);
+  divClick(div) {
+    this.insertDivUpdate.emit(div.id);
+  }
+  tileClick() {
+    this.insertDivUpdate.emit(null);
   }
 
 }

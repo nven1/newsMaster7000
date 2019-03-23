@@ -48,6 +48,7 @@
       (mousedown) = "tileDragStart($event)"
       (mouseover) = "tileDragOver($event)"
       [ngStyle]="{'grid-area': tile.gridArea}"
+      (click)="tileClick()"
       
       >
     </div>
@@ -59,7 +60,7 @@
       [class]="div.class" 
       [id]="div.id"
       [ngClass]="{'nzFlexCenter': div.class == 'title'}"
-      (click)="onDivClick(div)"
+      (click)="divClick(div)"
     >
         <ng-container *ngIf="div.class == 'paragraphs'">
             <p *ngFor="let p of articles[div.class]">{{p}}</p>
