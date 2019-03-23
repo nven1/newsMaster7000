@@ -67,26 +67,11 @@ export class WebconfService {
       activeElements:['title', 'paragraphs', 'tldr', 'meta'],
       divs: [
         {
-          id:'nav',
-          class: 'nav',
-          style: {
-            'grid-area':'1/1/3/21',
-            'background-color':'yellow'
-          }
-        },
-        {
-          id:'content',
-          class: 'content',
-          style: {
-            'grid-area':'3/1/21/21',
-            'background-color':'white'
-          }
-        },
-        {
           id:'title',
           class: 'title',
           style: {
             'grid-area':'1/1/3/21',
+            'background-color':'yellow'
           }
         },
         {
@@ -167,30 +152,6 @@ export class WebconfService {
       },
       activeElements:[],
       divs: [
-        {
-          id:'naviii',
-          class: 'nav',
-          style: {
-            'grid-area':'1/1/1/span 20',
-            'background-color':'green'
-          }
-        },
-        {
-          id:'contentiiii',
-          class: 'content',
-          style: {
-            'grid-area':'2/1/21/21',
-            'background-color':'white'
-          }
-        },
-        {
-          id:'ayyy',
-          class: 'lmao',
-          style: {
-            'grid-area':'2/2',
-            'background-color':'black'
-          }
-        },
       ]
     }
   ]
