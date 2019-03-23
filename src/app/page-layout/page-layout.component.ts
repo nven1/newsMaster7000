@@ -69,7 +69,20 @@ export class PageLayoutComponent implements OnInit {
   }
 
   newItem() {
-    this.presets.push({name:'newPreset'});
+    this.presets.push(
+      {
+        name: 'newPreset',
+        style: {
+          'display':'grid',
+          'grid-template-rows': 'repeat(20, 1fr)',
+          'grid-template-columns': 'repeat(20, 1fr)',
+          'height':'100vh',
+          'width':'100%'
+        },
+        activeElements:[],
+        divs: []
+      },
+    );
   }
 
   toggleSettings() {
@@ -86,14 +99,22 @@ export class PageLayoutComponent implements OnInit {
   }
 
   elementClick(el) {
-    this.insertDiv = el;
+    if (this.insertDiv === null) { this.insertDiv = el; }
+    else if (this.insertDiv === el) { this.insertDiv = null}
+    else { this.insertDiv = el }
+    
   }
 
   checkExist(el) {
     let ret;
 
     (this.wcs.Presets[this.selectedPreset].activeElements.includes(el)) ? ret = 'exist' : ret = 'notExist';
+    (this.insertDiv == el) ? ret += ' editing':'';
     return ret;
+  }
+
+  insertDivUpdate(event) {
+    this.insertDiv = event;
   }
 
 }
