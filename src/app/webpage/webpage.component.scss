@@ -27,3 +27,8 @@
     z-index: 9999;
     display: grid;
 }
+
+.highlight {
+    outline: 2px dashed rgba(0, 0, 0, 0.5);
+    z-index: 999999 !important;
+}

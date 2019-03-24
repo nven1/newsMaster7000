@@ -124,14 +124,14 @@
 }
 
 .exist {
-    background-color: green !important;
+    background-color: $ag !important;
 }
 .notExist {
-    background-color: rgb(214, 64, 64) !important;
+    background-color: $mr !important;
     
 }
 .editing {
-    background-color: blue !important;
+    background-color: $mb !important;
 }
 
 

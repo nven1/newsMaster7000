@@ -59,7 +59,7 @@
       class="customDiv"
       [class]="div.class" 
       [id]="div.id"
-      [ngClass]="{'nzFlexCenter': div.class == 'title'}"
+      [ngClass]="{'nzFlexCenter': div.class == 'title', 'highlight':div.class == insertDiv}"
       (click)="divClick(div)"
     >
         <ng-container *ngIf="div.class == 'paragraphs'">
