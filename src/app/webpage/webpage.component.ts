@@ -169,7 +169,6 @@ export class WebpageComponent implements OnInit, OnChanges {
     )
     this.wcs.Presets[this.selectedPreset].activeElements.push(this.insertDiv);
     this.selection = false;
-    this.insertDiv = undefined;
     this.newElement = null;
     this.sizeNewDivOK = null;
   }
