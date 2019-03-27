@@ -13,6 +13,10 @@
     height: 100%;
     width: 100%;
 }
+.customDiv {
+    z-index: 9999;
+    display: grid;
+}
 
 .title {
     align-self: center;
@@ -23,10 +27,11 @@
         margin: 0;
     }
 }
-.customDiv {
-    z-index: 9999;
-    display: grid;
+
+.paragraphs {
+    grid-auto-rows: max-content;
 }
+
 
 .highlight {
     outline: 2px dashed rgba(0, 0, 0, 0.5);
