@@ -77,8 +77,8 @@
           
           <ng-container *ngIf="div.class == 'meta'">
             <div [ngClass]="setClass(div)">
-                <span>Author: {{articles.author}}</span> 
-                <span>Date: {{articles.date}}</span> 
+                <span>{{articles.author}}</span> 
+                <span>{{articles.date}}</span> 
                 <span>Category: {{articles.category}}</span> 
                 <span>
                       <span *ngFor="let tag of articles.tags"> {{tag}} </span>
