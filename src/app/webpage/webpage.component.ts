@@ -167,7 +167,11 @@ export class WebpageComponent implements OnInit, OnChanges {
         style: {
           'grid-area':this.temp.nativeElement.style.gridArea,
           'background-color':'yellow',
-          'z-index':10
+          'z-index':10,
+          'padding':'0vh',
+          'font-size':'16px',
+          'border-radius':'0px',
+          'text-align':'left'
         },
         height: this.height,
         width: this.width
