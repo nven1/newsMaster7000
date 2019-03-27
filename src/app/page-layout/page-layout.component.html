@@ -97,6 +97,16 @@
                                 <span>{{currentElementStyles.padding}}</span>
                                 <button (click)="setStyle('padding', 'plus')">pa+</button>
                             </div>
+                            <div class='fontSize'>
+                                <button (click)="setStyle('fontSize', 'minus')">fs-</button>
+                                <span>{{currentElementStyles['font-size']}}</span>
+                                <button (click)="setStyle('fontSize', 'plus')">fs+</button>
+                            </div>
+                            <div class='radius'>
+                                <button (click)="setStyle('radius', 'minus')">fs-</button>
+                                <span>{{currentElementStyles['border-radius']}}</span>
+                                <button (click)="setStyle('radius', 'plus')">fs+</button>
+                            </div>
                         </div>
                     </div>
                 </ng-container>

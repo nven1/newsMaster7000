@@ -206,8 +206,45 @@ export class PageLayoutComponent implements OnInit, OnChanges {
             else { 
               p = 0; 
             }
-
             this.wcs.Presets[this.selectedPreset].divs[i].style['padding'] = p + 'vh';
+          }
+        }
+        break;
+      case 'fontSize':
+        for (let i=0; i<this.wcs.Presets[this.selectedPreset].divs.length; i++) {
+          if (this.wcs.Presets[this.selectedPreset].divs[i].id === this.insertDiv) {
+            let p;
+            if (this.currentElementStyles['font-size'] && y == 'plus') {
+              p = this.currentElementStyles['font-size'].replace('px','');
+              p = Number(p) + 1;
+            }
+            else if (this.currentElementStyles['font-size'] && y == 'minus') {
+              p = this.currentElementStyles['font-size'].replace('px','');
+              p = Number(p) - 1;
+            }
+            else {
+              p = 10;
+            }
+            this.wcs.Presets[this.selectedPreset].divs[i].style['font-size'] = p + 'px';
+          }
+        }
+        break;
+      case 'radius':
+        for (let i=0; i<this.wcs.Presets[this.selectedPreset].divs.length; i++) {
+          if (this.wcs.Presets[this.selectedPreset].divs[i].id === this.insertDiv) {
+            let p;
+            if (this.currentElementStyles['border-radius'] && y == 'plus') {
+              p = this.currentElementStyles['border-radius'].replace('px','');
+              p = Number(p) + 1;
+            }
+            else if (this.currentElementStyles['border-radius'] && y == 'minus') {
+              p = this.currentElementStyles['border-radius'].replace('px','');
+              p = Number(p) - 1;
+            }
+            else {
+              p = 0;
+            }
+            this.wcs.Presets[this.selectedPreset].divs[i].style['border-radius'] = p + 'px';
           }
         }
         break;
