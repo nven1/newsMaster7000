@@ -81,6 +81,26 @@
                         <span>delete me ayyy</span>
                     </div>
                 </ng-container>
+                <ng-container *ngIf="detailMode == 'style' && insertDiv != null">
+                    <div class='styleMode'>
+                        <span>{{insertDiv}}</span>
+                        <button (click)="elementStyle(null)"><i class="fas fa-times"></i></button>
+                        <div class='styleOptions'>
+                            <div class='textAlign'>
+                                <button (click)="setStyle('textAlignLeft')">tal</button>
+                                <button (click)="setStyle('textAlignRight')">tar</button>
+                                <button (click)="setStyle('textAlignCenter')">tac</button>
+                                <button (click)="setStyle('textAlignJustify')">taj</button>
+                            </div>
+                            <div class='padding'>
+                                <button (click)="setStyle('padding', 'minus')">pa-</button>
+                                <span>{{currentElementStyles.padding}}</span>
+                                <button (click)="setStyle('padding', 'plus')">pa+</button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+
             </div>
         </ng-container>
     </div>

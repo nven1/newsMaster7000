@@ -7,7 +7,7 @@ import { DataService } from '../data.service';
   templateUrl: './page-layout.component.html',
   styleUrls: ['./page-layout.component.scss']
 })
-export class PageLayoutComponent implements OnInit {
+export class PageLayoutComponent implements OnInit, OnChanges {
   
   consoleOptions = ['Presets','Components', 'Articles']
   consoleCurrent = 0;
@@ -27,12 +27,14 @@ export class PageLayoutComponent implements OnInit {
   /* pokazuje detalje itema iz liste */
   detailView = false;
 
-  detailModes = ['default', 'settings'];
+  detailModes = ['default', 'settings', 'style'];
   detailMode = this.detailModes[0];
 
   editorMode = false;
   resizeMode = false;
   insertDiv = null;
+
+  currentElementStyles = null;
 
   constructor(private wcs: WebconfService, private ss: DataService) {
     this.presets = this.wcs.Presets;
@@ -40,6 +42,10 @@ export class PageLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+  ngOnChanges(change) {
+    console.log(change);
+
   }
 /*   ngOnChanges(changes) {
     console.log('ayy');
@@ -124,6 +130,9 @@ export class PageLayoutComponent implements OnInit {
 
   insertDivUpdate(event) {
     this.insertDiv = event;
+    if (this.detailMode == this.detailModes[2]) {
+      this.elementStyle(this.insertDiv);
+    }
   }
   elementDelete(el) {
     for (let i=0; i<this.wcs.Presets[this.selectedPreset].divs.length; i++) {
@@ -138,6 +147,74 @@ export class PageLayoutComponent implements OnInit {
     this.insertDiv = el;
     this.resizeMode = !this.resizeMode;
 
+  }
+  elementStyle(el) {
+    if(this.detailMode == this.detailModes[2] && el == null) {
+      this.detailMode = this.detailModes[0]
+    } else {
+      this.insertDiv = el; this.detailMode = this.detailModes[2];
+      for (let i=0; i<this.wcs.Presets[this.selectedPreset].divs.length; i++) {
+        if (this.wcs.Presets[this.selectedPreset].divs[i].id === this.insertDiv) {
+          this.currentElementStyles = this.wcs.Presets[this.selectedPreset].divs[i].style;
+        }
+      }
+    }  
+  }
+
+  setStyle(x, y) {
+    switch (x) {
+      case 'textAlignLeft':
+        for (let i=0; i<this.wcs.Presets[this.selectedPreset].divs.length; i++) {
+          if (this.wcs.Presets[this.selectedPreset].divs[i].id === this.insertDiv) {
+            this.wcs.Presets[this.selectedPreset].divs[i].style['text-align'] = 'left';
+          }
+        }
+        break;
+      case 'textAlignRight':
+        for (let i=0; i<this.wcs.Presets[this.selectedPreset].divs.length; i++) {
+          if (this.wcs.Presets[this.selectedPreset].divs[i].id === this.insertDiv) {
+            this.wcs.Presets[this.selectedPreset].divs[i].style['text-align'] = 'right';
+          }
+        }
+        break;
+      case 'textAlignCenter':
+        for (let i=0; i<this.wcs.Presets[this.selectedPreset].divs.length; i++) {
+          if (this.wcs.Presets[this.selectedPreset].divs[i].id === this.insertDiv) {
+            this.wcs.Presets[this.selectedPreset].divs[i].style['text-align'] = 'center';
+          }
+        }
+        break;
+      case 'textAlignJustify':
+        for (let i=0; i<this.wcs.Presets[this.selectedPreset].divs.length; i++) {
+          if (this.wcs.Presets[this.selectedPreset].divs[i].id === this.insertDiv) {
+            this.wcs.Presets[this.selectedPreset].divs[i].style['text-align'] = 'justify';
+          }
+        }
+        break;
+      case 'padding':
+        for (let i=0; i<this.wcs.Presets[this.selectedPreset].divs.length; i++) {
+          if (this.wcs.Presets[this.selectedPreset].divs[i].id === this.insertDiv) {
+            let p;
+            if (this.currentElementStyles.padding && y == 'plus') {
+              p = this.currentElementStyles.padding.replace('vh','');
+              p = Number(p) + 1;
+            }
+            else if (this.currentElementStyles.padding && y == 'minus') {
+              p = this.currentElementStyles.padding.replace('vh','');
+              p = Number(p) - 1;
+            }
+            else { 
+              p = 0; 
+            }
+
+            this.wcs.Presets[this.selectedPreset].divs[i].style['padding'] = p + 'vh';
+          }
+        }
+        break;
+    
+      default:
+        break;
+    }
   }
 
 }

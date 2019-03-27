@@ -14,15 +14,6 @@
     width: 100%;
 }
 
-.title {
-    align-self: center;
-    text-align: center;
-    height: 100%;
-    margin: 0;
-    h3 {
-        margin: 0;
-    }
-}
 .customDiv {
     z-index: 9999;
     display: grid;
@@ -32,3 +23,35 @@
     outline: 2px dashed rgba(0, 0, 0, 0.5);
     z-index: 999999 !important;
 }
+
+/* TYPES OF DIVS */
+.title {
+    align-self: center;
+    text-align: center;
+    height: 100%;
+    margin: 0;
+    h3 {
+        margin: 0;
+    }
+}
+
+.meta {
+    span {
+        margin-right: 2vw;
+    }
+
+    .flexMeta {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .gridMeta {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        padding-left: 2vw;
+    }
+}
+
+/* TYPES OF DIVS */
