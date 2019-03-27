@@ -18,6 +18,17 @@
     display: grid;
 }
 
+.customDiv {
+    z-index: 9999;
+    display: grid;
+}
+
+.highlight {
+    outline: 2px dashed rgba(0, 0, 0, 0.5);
+    z-index: 999999 !important;
+}
+
+/* TYPES OF DIVS */
 .title {
     align-self: center;
     text-align: center;
@@ -37,3 +48,23 @@
     outline: 2px dashed rgba(0, 0, 0, 0.5);
     z-index: 999999 !important;
 }
+.meta {
+    span {
+        margin-right: 2vw;
+    }
+
+    .flexMeta {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .gridMeta {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        padding-left: 2vw;
+    }
+}
+
+/* TYPES OF DIVS */

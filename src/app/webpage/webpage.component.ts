@@ -31,6 +31,7 @@ export class WebpageComponent implements OnInit, OnChanges {
   
   aCol; aRow;
   bCol; bRow;
+  height; width;
 
   selection = false;
   Grid = [];
@@ -53,6 +54,9 @@ export class WebpageComponent implements OnInit, OnChanges {
         if (this.wcs.Presets[this.selectedPreset].activeElements.includes(changes.insertDiv.currentValue)) {
           /* document.getElementById(changes.insertDiv.currentValue).style.border = '1px solid black'; */
           this.newElement = false;
+        }
+        else if (this.insertDiv == null) {
+          this.newElement = null;
         }
         else {
           this.newElement = true;
@@ -85,7 +89,7 @@ export class WebpageComponent implements OnInit, OnChanges {
   }
 
   tileDragStart(event) {
-    if (this.newElement) {
+    if (this.newElement == true) {
       this.dragMode = 1;
       this.aRow = Number(event.target.style.gridRowStart);
       this.aCol = Number(event.target.style.gridColumnStart);
@@ -114,19 +118,19 @@ export class WebpageComponent implements OnInit, OnChanges {
       } else {
         bCol ++;     
       }
-      let height = Math.abs(aRow - bRow);
-      let width = Math.abs(aCol - bCol);
+      this.height = Math.abs(aRow - bRow);
+      this.width = Math.abs(aCol - bCol);
 
       
       this.temp.nativeElement.style.gridArea = aRow+'/'+aCol+'/'+bRow+'/'+bCol;
 
       if (
-        (this.insertDiv == 'title' && height>1 && width>5) ||
-        (this.insertDiv == 'shortDescription' && height>5 && width>5) ||
-        (this.insertDiv == 'tldr' && height>4 && width>5) ||
-        (this.insertDiv == 'paragraphs' && height>9 && width>9) ||
-        (this.insertDiv == 'gallery' && height>5 && width>5) ||
-        (this.insertDiv == 'meta' && height>5 && width>4) 
+        (this.insertDiv == 'title' && this.height>=2 && this.width>=5) ||
+        (this.insertDiv == 'shortDescription' && this.height>=2 && this.width>=5) ||
+        (this.insertDiv == 'tldr' && this.height>=4 && this.width>=3) ||
+        (this.insertDiv == 'paragraphs' && this.height>=6 && this.width>=7) ||
+        (this.insertDiv == 'gallery' && this.height>=5 && this.width>=5) ||
+        (this.insertDiv == 'meta' && this.height>=1 && this.width>=3) 
         ) {
         this.sizeNewDivOK = true;
         this.temp.nativeElement.style.backgroundColor = 'green'
@@ -164,13 +168,17 @@ export class WebpageComponent implements OnInit, OnChanges {
           'grid-area':this.temp.nativeElement.style.gridArea,
           'background-color':'yellow',
           'z-index':10
-        }
+        },
+        height: this.height,
+        width: this.width
       },
     )
     this.wcs.Presets[this.selectedPreset].activeElements.push(this.insertDiv);
     this.selection = false;
     this.newElement = null;
     this.sizeNewDivOK = null;
+    this.dragMode = 0;
+    this.height = this.width = null;
   }
 
   divClick(div) {
@@ -178,6 +186,13 @@ export class WebpageComponent implements OnInit, OnChanges {
   }
   tileClick() {
     this.insertDivUpdate.emit(null);
+  }
+  setClass(div) {
+    let i;
+    (div.id=='meta' && div.height<=2) ? i = 'flexMeta' : i = 'gridMeta';
+
+
+    return i;
   }
 
 }

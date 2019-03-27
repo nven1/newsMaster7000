@@ -81,6 +81,36 @@
                         <span>delete me ayyy</span>
                     </div>
                 </ng-container>
+                <ng-container *ngIf="detailMode == 'style' && insertDiv != null">
+                    <div class='styleMode'>
+                        <span>{{insertDiv}}</span>
+                        <button (click)="elementStyle(null)"><i class="fas fa-times"></i></button>
+                        <div class='styleOptions'>
+                            <div class='textAlign'>
+                                <button (click)="setStyle('textAlignLeft')">tal</button>
+                                <button (click)="setStyle('textAlignRight')">tar</button>
+                                <button (click)="setStyle('textAlignCenter')">tac</button>
+                                <button (click)="setStyle('textAlignJustify')">taj</button>
+                            </div>
+                            <div class='padding'>
+                                <button (click)="setStyle('padding', 'minus')">pa-</button>
+                                <span>{{currentElementStyles.padding}}</span>
+                                <button (click)="setStyle('padding', 'plus')">pa+</button>
+                            </div>
+                            <div class='fontSize'>
+                                <button (click)="setStyle('fontSize', 'minus')">fs-</button>
+                                <span>{{currentElementStyles['font-size']}}</span>
+                                <button (click)="setStyle('fontSize', 'plus')">fs+</button>
+                            </div>
+                            <div class='radius'>
+                                <button (click)="setStyle('radius', 'minus')">fs-</button>
+                                <span>{{currentElementStyles['border-radius']}}</span>
+                                <button (click)="setStyle('radius', 'plus')">fs+</button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+
             </div>
         </ng-container>
     </div>

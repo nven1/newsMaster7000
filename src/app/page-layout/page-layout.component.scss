@@ -111,14 +111,34 @@
                         
                         text-align: left;
                         padding: 0 0 0 1vw;
+
+                        &:hover {
+                            opacity: .7;
+                        }
                     }
                 }
-
-
-                
             }
-            
-            
+
+            .styleMode {
+                display: grid;
+                grid-template-rows: 5vh 1fr;
+                grid-template-columns: 1fr 5vh;
+
+                span {
+                    align-self: center;
+                    padding: 0 0 0 2vw;
+                }
+                button {
+                    @extend %stripButton;
+                    font-size: 1.4em;
+                    padding: 0 2vw 0 0;
+                }
+                
+                .styleOptions {
+                    grid-area: 2/1/2/3;
+                    background-color: $mb;
+                }
+            }
         }
     }
 }

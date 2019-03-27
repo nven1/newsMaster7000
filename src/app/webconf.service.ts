@@ -79,7 +79,8 @@ export class WebconfService {
           class: 'paragraphs',
           style: {
             'grid-area':'4/2/21/15',
-            'background-color':'green'
+            'background-color':'green',
+            'padding':'2vh'
           }
         },
         {

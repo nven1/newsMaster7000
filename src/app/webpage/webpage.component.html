@@ -20,12 +20,15 @@
             </ng-container>
 
             <ng-container *ngIf="div.class == 'meta'">
-                <ul>
-                  <li *ngFor="let tag of articles.tags"> {{tag}} </li>
-                </ul>
-                <span>Category: {{articles.category}}</span> <br>
-                <span>Author: {{articles.author}}</span> <br>
-                <span>Date: {{articles.date}}</span> <br>
+                <span>Author: {{articles.author}}</span> 
+                <span>Date: {{articles.date}}</span> 
+                <span>Category: {{articles.category}}</span> 
+                <span>
+                      <span *ngFor="let tag of articles.tags"> {{tag}} </span>
+                </span>
+
+                
+
             </ng-container>
 
             <ng-container *ngIf="div.class == 'title'" >
@@ -73,12 +76,15 @@
           </ng-container>
           
           <ng-container *ngIf="div.class == 'meta'">
-              <ul>
-                <li *ngFor="let tag of articles.tags"> {{tag}} </li>
-              </ul>
-              <span>Category: {{articles.category}}</span> <br>
-              <span>Author: {{articles.author}}</span> <br>
-              <span>Date: {{articles.date}}</span> <br>
+            <div [ngClass]="setClass(div)">
+                <span>Author: {{articles.author}}</span> 
+                <span>Date: {{articles.date}}</span> 
+                <span>Category: {{articles.category}}</span> 
+                <span>
+                      <span *ngFor="let tag of articles.tags"> {{tag}} </span>
+                </span>
+            </div>
+
           </ng-container>
           
           <ng-container *ngIf="div.class == 'title'" >
