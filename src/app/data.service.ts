@@ -15,7 +15,7 @@ export class DataService {
   articles = [
     new Article(
       1,
-      'Apple Loss', 
+      'Vijest broj 1', 
       this.categories[0], 
       'Apple loses a lot of money in latest Q',
       ['Apple loses lots', 'bad iphone sales'],
