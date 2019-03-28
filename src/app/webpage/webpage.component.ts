@@ -41,7 +41,7 @@ export class WebpageComponent implements OnInit, OnChanges {
   constructor(private wcs:WebconfService, private art: DataService) {
     this.presets = wcs.Presets;
     this.createGrid(20,20);  
-    this.articles = art.placeholder;
+    this.articles = art.articles[0];
   }
 
   ngOnChanges(changes) {

@@ -72,7 +72,7 @@ export class WebconfService {
           style: {
             'grid-area':'1/1/3/21',
             'background-color':'yellow',
-            'padding':'2vh',
+            'padding':'0vh',
             'font-size':'30px',
             'border-radius':'0px',
             'text-align':'center'

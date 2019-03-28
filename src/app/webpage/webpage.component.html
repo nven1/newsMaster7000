@@ -81,14 +81,17 @@
                 <span>{{articles.date}}</span> 
                 <span>Category: {{articles.category}}</span> 
                 <span>
-                      <span *ngFor="let tag of articles.tags"> {{tag}} </span>
+                      <span *ngFor="let tag of articles.tags"> {{tag}} &nbsp; </span>
                 </span>
             </div>
 
           </ng-container>
           
           <ng-container *ngIf="div.class == 'title'" >
-            <h3 class="nzFlexCenter">{{articles.title}}</h3>
+            <h3 class="">{{articles.title}}</h3>
+          </ng-container>
+          <ng-container *ngIf="div.class == 'shortDescription'" >
+            <h4 class="">{{articles.shortDescription}}</h4>
           </ng-container>
       
 <!--       {{articles[div.class]}}
