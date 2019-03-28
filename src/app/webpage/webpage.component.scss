@@ -13,6 +13,10 @@
     height: 100%;
     width: 100%;
 }
+.customDiv {
+    z-index: 9999;
+    display: grid;
+}
 
 .customDiv {
     z-index: 9999;
@@ -35,6 +39,15 @@
     }
 }
 
+.paragraphs {
+    grid-auto-rows: max-content;
+}
+
+
+.highlight {
+    outline: 2px dashed rgba(0, 0, 0, 0.5);
+    z-index: 999999 !important;
+}
 .meta {
     span {
         margin-right: 2vw;

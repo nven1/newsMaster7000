@@ -71,7 +71,11 @@ export class WebconfService {
           class: 'title',
           style: {
             'grid-area':'1/1/3/21',
-            'background-color':'yellow'
+            'background-color':'yellow',
+            'padding':'2vh',
+            'font-size':'30px',
+            'border-radius':'0px',
+            'text-align':'center'
           }
         },
         {
@@ -80,7 +84,10 @@ export class WebconfService {
           style: {
             'grid-area':'4/2/21/15',
             'background-color':'green',
-            'padding':'2vh'
+            'padding':'2vh',
+            'font-size':'16px',
+            'border-radius':'0px',
+            'text-align':'center'
           }
         },
         {
@@ -88,7 +95,11 @@ export class WebconfService {
           class: 'tldr',
           style: {
             'grid-area':'4/16/9/20',
-            'background-color':'red'
+            'background-color':'red',
+            'padding':'2vh',
+            'font-size':'16px',
+            'border-radius':'0px',
+            'text-align':'left'
           }
         },
         {
@@ -96,7 +107,11 @@ export class WebconfService {
           class: 'meta',
           style: {
             'grid-area':'10/16/20/20',
-            'background-color':'grey'
+            'background-color':'grey',
+            'padding':'2vh',
+            'font-size':'16px',
+            'border-radius':'0px',
+            'text-align':'left'
           }
         },
       ]

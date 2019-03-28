@@ -87,25 +87,30 @@
                         <button (click)="elementStyle(null)"><i class="fas fa-times"></i></button>
                         <div class='styleOptions'>
                             <div class='textAlign'>
-                                <button (click)="setStyle('textAlignLeft')">tal</button>
-                                <button (click)="setStyle('textAlignRight')">tar</button>
-                                <button (click)="setStyle('textAlignCenter')">tac</button>
-                                <button (click)="setStyle('textAlignJustify')">taj</button>
+                                <span>Text Alignment</span>
+                                <button (click)="setStyle('textAlignLeft')">l</button>
+                                <button (click)="setStyle('textAlignRight')">r</button>
+                                <button (click)="setStyle('textAlignCenter')">c</button>
+                                <button (click)="setStyle('textAlignJustify')">j</button>
                             </div>
                             <div class='padding'>
-                                <button (click)="setStyle('padding', 'minus')">pa-</button>
+                                <span>Padding</span>
+                                <button (click)="setStyle('padding', 'minus')">-</button>
+                                <!-- <input type="number" [(ngModel)]="name"> -->
                                 <span>{{currentElementStyles.padding}}</span>
-                                <button (click)="setStyle('padding', 'plus')">pa+</button>
+                                <button (click)="setStyle('padding', 'plus')">+</button>
                             </div>
                             <div class='fontSize'>
-                                <button (click)="setStyle('fontSize', 'minus')">fs-</button>
+                                <span>Font Size</span>
+                                <button (click)="setStyle('fontSize', 'minus')">-</button>
                                 <span>{{currentElementStyles['font-size']}}</span>
-                                <button (click)="setStyle('fontSize', 'plus')">fs+</button>
+                                <button (click)="setStyle('fontSize', 'plus')">+</button>
                             </div>
                             <div class='radius'>
-                                <button (click)="setStyle('radius', 'minus')">fs-</button>
+                                <span>Border Radius</span>
+                                <button (click)="setStyle('radius', 'minus')">-</button>
                                 <span>{{currentElementStyles['border-radius']}}</span>
-                                <button (click)="setStyle('radius', 'plus')">fs+</button>
+                                <button (click)="setStyle('radius', 'plus')">+</button>
                             </div>
                         </div>
                     </div>
