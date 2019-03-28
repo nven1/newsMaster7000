@@ -89,7 +89,7 @@
                 </span>
                 <div class="articleShortDescription">
                     <span>short description</span> <br>
-                    <textarea name="" maxlength="200"  rows="3">{{selectedArticle.shortDescription}}</textarea>
+                    <textarea name="" maxlength="200"  rows="3" [(ngModel)]="selectedArticle.shortDescription"></textarea>
                     
                 </div>
                 <span>
@@ -102,7 +102,7 @@
                     <span>TL;DR <span>max 5</span></span>
                     <ul>
                         <li *ngFor="let tldr of selectedArticle.tldr; index as i">
-                            <input  [(ngModel)]='tldr'>
+                            <input  [(ngModel)]='selectedArticle.tldr[i]'>
                             <span class="" (click)="removeTLDR(i)"><i class="fas fa-times"></i> </span>
                         </li>
                         <li *ngIf = "selectedArticle.tldr.length < 5">
@@ -121,7 +121,7 @@
                 <span>Paragraphs</span>
                 <ul>
                     <li *ngFor="let par of selectedArticle.paragraphs; index as i">
-                        <textarea  [(ngModel)]='par' rows="4"></textarea>
+                        <textarea  [(ngModel)]='selectedArticle.paragraphs[i]' rows="4"></textarea>
                         <!-- <span class="" (click)="removeTLDR(i)"><i class="fas fa-times"></i> </span> -->
                     </li>
                     <li>
