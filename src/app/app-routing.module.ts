@@ -15,6 +15,7 @@ const routes: Routes = [
   {path:'layout-manager', component:PageLayoutComponent},
   {path:'statistics', component:StatisticsComponent},
   {path:'site-manager', component:ManageSiteComponent},
+  {path:'dashboard', component:DashboardComponent},
 ];
 
 @NgModule({
