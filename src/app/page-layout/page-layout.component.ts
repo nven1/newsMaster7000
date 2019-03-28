@@ -248,6 +248,20 @@ export class PageLayoutComponent implements OnInit, OnChanges {
           }
         }
         break;
+      case 'backColor':
+        for (let i=0; i<this.wcs.Presets[this.selectedPreset].divs.length; i++) {
+          if (this.wcs.Presets[this.selectedPreset].divs[i].id === this.insertDiv) {
+            this.wcs.Presets[this.selectedPreset].divs[i].style['background-color'] = y;
+          }
+        }
+        break;
+      case 'color':
+        for (let i=0; i<this.wcs.Presets[this.selectedPreset].divs.length; i++) {
+          if (this.wcs.Presets[this.selectedPreset].divs[i].id === this.insertDiv) {
+            this.wcs.Presets[this.selectedPreset].divs[i].style['color'] = y;
+          }
+        }
+        break;
     
       default:
         break;
