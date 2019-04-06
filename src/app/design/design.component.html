@@ -1,0 +1,89 @@
+<div class="designWrapper">
+	<div class="editor">
+				<ng-container *ngIf="detailMode == 'default'">
+					<div class="elementList">
+						<div 
+							class="element"
+							*ngFor="let element of wcs.elements"
+							[ngClass]="checkExist(element.id)"
+						>
+							<button (click)="elementClick(element.id)" >
+								{{element.title}}
+							</button> 
+							<button (click)="elementStyle(element.id)"><i class="fas fa-tint"></i></button>
+							<button (click)="elementResize(element.id)">
+								<i *ngIf="resizeMode && element.id == insertDiv" class="fa fa-undo"></i>
+								<i *ngIf="!resizeMode || element.id != insertDiv" class="fas fa-expand-arrows-alt"></i>
+							</button>
+							<button (click)="elementDelete(element.id)"><i class="fas fa-times-circle"></i></button>
+						</div>
+
+					</div>
+				</ng-container>
+				<ng-container *ngIf="detailMode == 'style' && insertDiv != null">
+					<div class='styleMode'>
+						<span>{{insertDiv}}</span>
+						<button (click)="elementStyle(null)"><i class="fas fa-times"></i></button>
+						<div class='styleOptions'>
+							<div class='textAlign'>
+								<button (click)="setStyle('textAlignLeft')"><i class="fa fa-align-left"></i></button>
+								<button (click)="setStyle('textAlignRight')"><i class="fa fa-align-right"></i></button>
+								<button (click)="setStyle('textAlignCenter')"><i class="fa fa-align-center"></i></button>
+								<button (click)="setStyle('textAlignJustify')"><i class="fa fa-align-justify"></i></button>
+							</div>
+							<div class='padding'>
+								<span>Padding</span>
+								<button (click)="setStyle('padding', 'minus')">-</button>
+								<button (click)="setStyle('padding', 'plus')">+</button>
+							</div>
+							<div class='fontSize'>
+								<span>Font Size</span>
+								<button (click)="setStyle('fontSize', 'minus')">-</button>
+								<button (click)="setStyle('fontSize', 'plus')">+</button>
+							</div>
+							<div class='radius'>
+								<span>Border Radius</span>
+								<button (click)="setStyle('radius', 'minus')">-</button>
+								<button (click)="setStyle('radius', 'plus')">+</button>
+							</div>
+							<div class='backColor'>
+								<span class="colorsTitle">Background Color</span>
+								<span class="colorsContainer">
+									<button class="colorButton black" (click)="setStyle('backColor', '#000a12')" style="background-color:#000a12"></button>
+									<button class="colorButton darkGrey" (click)="setStyle('backColor', '#616161')" style="background-color:#616161"></button>
+									<button class="colorButton lightGrey" (click)="setStyle('backColor', '#eeeeee')" style="background-color:#eeeeee"></button>
+									<button class="colorButton white" (click)="setStyle('backColor', '#ffffff')" style="background-color:#ffffff"></button>
+									<button class="colorButton blue" (click)="setStyle('backColor', '#0277bd')" style="background-color:#0277bd"></button>
+									<button class="colorButton red" (click)="setStyle('backColor', '#c62828')" style="background-color:#c62828"></button>
+									<button class="colorButton yellow" (click)="setStyle('backColor', '#fdd835')" style="background-color:#fdd835"></button>
+									<button class="colorButton green" (click)="setStyle('backColor', '#43a047')" style="background-color:#43a047"></button>
+								</span>
+
+							</div>
+							<div class='color'>
+								<span class="colorsTitle">Text Color</span>
+								<span class="colorsContainer">
+									<button class="colorButton black" (click)="setStyle('color', '#000a12')" style="background-color:#000a12"></button>
+									<button class="colorButton darkGrey" (click)="setStyle('color', '#616161')" style="background-color:#616161"></button>
+									<button class="colorButton lightGrey" (click)="setStyle('color', '#eeeeee')" style="background-color:#eeeeee"></button>
+									<button class="colorButton white" (click)="setStyle('color', '#ffffff')" style="background-color:#ffffff"></button>
+									<button class="colorButton blue" (click)="setStyle('color', '#0277bd')" style="background-color:#0277bd"></button>
+									<button class="colorButton red" (click)="setStyle('color', '#c62828')" style="background-color:#c62828"></button>
+									<button class="colorButton yellow" (click)="setStyle('color', '#fdd835')" style="background-color:#fdd835"></button>
+									<button class="colorButton green" (click)="setStyle('color', '#43a047')" style="background-color:#43a047"></button>
+								</span>
+
+							</div>
+						</div>
+					</div>
+				</ng-container>
+	  </div>
+	  <app-webpage 
+		class="website gridCenter"
+		[selectedPreset] = "0" 
+		[insertDiv] = "insertDiv"
+		(insertDivUpdate)="insertDivUpdate($event)"
+  		>
+		</app-webpage>
+</div>
+

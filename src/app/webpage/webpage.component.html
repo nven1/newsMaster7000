@@ -6,7 +6,7 @@
           [class]="div.class" 
           [ngStyle] = "div.style" 
           (click)="selectDiv($event)"
-          [ngClass]="{'nzFlexCenter': div.class == 'title'}"
+          [ngClass]="{'flexCenter': div.class == 'title'}"
         >
 
             <ng-container *ngIf="div.class == 'paragraphs'">
@@ -32,12 +32,10 @@
             </ng-container>
 
             <ng-container *ngIf="div.class == 'title'" >
-              <h3 class="nzFlexCenter">{{articles.title}}</h3>
+              <h3 class="flexCenter">{{articles.title}}</h3>
             </ng-container>
             
             
-<!--           {{articles[div.class]}}
-          {{div.class}} -->
         </div>
       </ng-container>
       
@@ -62,7 +60,7 @@
       class="customDiv"
       [class]="div.class" 
       [id]="div.id"
-      [ngClass]="{'nzFlexCenter': div.class == 'title', 'highlight':div.class == insertDiv}"
+      [ngClass]="{'flexCenter': div.class == 'title', 'highlight':div.class == insertDiv}"
       (click)="divClick(div)"
     >
         <ng-container *ngIf="div.class == 'paragraphs'">
@@ -94,17 +92,12 @@
             <h4 class="">{{articles.shortDescription}}</h4>
           </ng-container>
       
-<!--       {{articles[div.class]}}
-      {{div.class}} -->
     </div>
 
     <div class="temp" #temp *ngIf="selection" style="background-color:black; color:white;">
       <button (click)="setDiv()" *ngIf="dragMode == 2 && sizeNewDivOK" class="addButton">Set as {{insertDiv}}</button>
     </div>
 
-<!--     <div class="divOverlay" #divOverlay *ngIf="!newElement">
-      ayyyy
-    </div> -->
 
   </div>
 </ng-container>

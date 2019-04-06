@@ -2,16 +2,17 @@ import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
 
 @Component({
-  selector: 'app-articles-manager',
-  templateUrl: './articles-manager.component.html',
-  styleUrls: ['./articles-manager.component.scss']
+  selector: 'app-content',
+  templateUrl: './content.component.html',
+  styleUrls: ['./content.component.scss']
 })
-export class ArticlesManagerComponent implements OnInit {
+export class ContentComponent implements OnInit {
+
   articles = [];
   categories = [];
   tags = [];
-  @Input() selectedArticle = null;
-  @Input() selectedArticleIndex = null;
+  selectedArticle;
+  selectedArticleIndex = 0;
   tldrEnabled = null;
 
   consoleOptions = ['article', 'category', 'tag'];
@@ -23,9 +24,14 @@ export class ArticlesManagerComponent implements OnInit {
     this.articles = ss.articles;
     this.categories = ss.categories;
     this.tags = ss.tags;
+
+    this.selectedArticle = this.articles[0];
   }
 
   ngOnInit() {
+    
+    
+    console.log(this.selectedArticle);
   }
 
   setArticle(i) {

@@ -38,8 +38,8 @@ export class WebconfService {
     'display':'grid',
     'grid-template-rows': 'repeat(20, 1fr)',
     'grid-template-columns': 'repeat(20, 1fr)',
-    'height':'100vh',
-    'width':'100%'
+    'height':'80vh',
+    'width':'80vw'
   }
   Presets: any = [
     {

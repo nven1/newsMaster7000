@@ -11,7 +11,7 @@ export class WebpageComponent implements OnInit, OnChanges {
   presets = [];
   divs = null;
 
-  @Input() selectedPreset;
+  @Input() selectedPreset = 0;
   @Input() editorMode;
   @Input() insertDiv;
 
@@ -42,6 +42,7 @@ export class WebpageComponent implements OnInit, OnChanges {
     this.presets = wcs.Presets;
     this.createGrid(20,20);  
     this.articles = art.articles[0];
+    this.editorMode = true;
   }
 
   ngOnChanges(changes) {

@@ -4,6 +4,7 @@ $mg : #517C81;
 $mr : rgba(217, 54, 54, 0.86);
 $ag : rgba(41, 176, 62, 0.84);
 $mb : rgba(61, 148, 207, 0.96);
+$bw : rgb(245, 245, 245);
 
 %stripButton {
     border: none;
@@ -22,6 +23,7 @@ html, body {
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     --mg: #517C81;
+    
 }
 
 .nzfsc {
@@ -30,12 +32,12 @@ html, body {
     display: grid;
 }
 
-.nzFlexCenter {
+.flexCenter {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.nzGridCenter {
+.gridCenter {
     display: grid;
     justify-content: center;
     align-items: center;

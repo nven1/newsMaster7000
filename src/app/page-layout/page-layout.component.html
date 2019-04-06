@@ -1,14 +1,14 @@
-<div class="left">
+<!-- <div class="left">
     <app-dashboard-navigation></app-dashboard-navigation>
 
     <div class="layouts">
-        <div class="layoutConsole"> <!-- switchanje izmedu console modova -->
+        <div class="layoutConsole"> 
             <button class="consoleButton" (click)="consoleMode()"> 
-                    {{consoleOptions[consoleCurrent]}} <!-- &nbsp; <i class="fas fa-caret-right"></i> -->
+                    {{consoleOptions[consoleCurrent]}} 
             </button>
         </div>
 
-        <ng-container *ngIf="listView && consoleCurrent == 0"> <!-- PRESET LIST -->
+        <ng-container *ngIf="listView && consoleCurrent == 0">
             <div class='list'>
                 <ul>
                     <li 
@@ -25,7 +25,7 @@
             </div>
         </ng-container>
 
-        <ng-container *ngIf="consoleCurrent == 2"> <!-- ARTICLE LIST -->
+        <ng-container *ngIf="consoleCurrent == 2"> 
             <div class='list'>
                 <ul>
                     <li 
@@ -42,7 +42,7 @@
             </div>
         </ng-container>
 
-        <ng-container *ngIf="detailView && consoleCurrent == 0 "> <!-- PRESET DETAIL -->
+        <ng-container *ngIf="detailView && consoleCurrent == 0 ">
             <div class='details'>
 
                 <div class="back">
@@ -96,7 +96,6 @@
                             <div class='padding'>
                                 <span>Padding</span>
                                 <button (click)="setStyle('padding', 'minus')">-</button>
-                                <!-- <input type="number" [(ngModel)]="name"> -->
                                 <span>{{currentElementStyles.padding}}</span>
                                 <button (click)="setStyle('padding', 'plus')">+</button>
                             </div>
@@ -156,4 +155,4 @@
 
     </app-webpage>
     <app-articles-manager *ngIf="consoleCurrent == 2 && selectedArticle!==null" [selectedArticle] = "selectedArticle" [selectedArticleIndex] = 'selectedArticleIndex'></app-articles-manager>
-</div>
+</div> -->
