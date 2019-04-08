@@ -174,7 +174,8 @@ export class WebpageComponent implements OnInit, OnChanges {
           'padding':'0vh',
           'font-size':'16px',
           'border-radius':'0px',
-          'text-align':'left'
+          'text-align':'left',
+          'overflow':'auto'
         },
         height: this.height,
         width: this.width
@@ -191,9 +192,16 @@ export class WebpageComponent implements OnInit, OnChanges {
   divClick(div) {
     this.insertDivUpdate.emit(div.id);
   }
+
+  doubleDivClick(event) {
+    console.log(event);
+  }
+  
   tileClick() {
     this.insertDivUpdate.emit(null);
+    console.log(event);
   }
+
   setClass(div) {
     let i;
     (div.id=='meta' && div.height<=2) ? i = 'flexMeta' : i = 'gridMeta';

@@ -55,10 +55,17 @@ export class DesignComponent {
   }
 
   insertDivUpdate(event) {
-    this.insertDiv = event;
-    if (this.detailMode == this.detailModes[2]) {
-      this.elementStyle(this.insertDiv);
+    console.log(event);
+    if (event == this.insertDiv) {
+      this.insertDiv = null;
     }
+    else {
+      this.insertDiv = event;
+      if (this.detailMode == this.detailModes[2]) {
+        this.elementStyle(this.insertDiv);
+      }
+    }
+
   }
   elementDelete(el) {
     for (let i=0; i<this.wcs.Presets[0].divs.length; i++) {

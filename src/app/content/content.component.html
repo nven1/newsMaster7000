@@ -25,7 +25,7 @@
                   <div>
                       <button class="button1" *ngFor="let tag of selectedArticle.tags; index as i" (click)="removeTag(i)">{{tag}} &nbsp; <i class="fas fa-times"></i> </button>
                       
-                  </div>
+                  
                   <ng-container *ngIf = "selectedArticle.tags.length < 5">
                       <div class="addTag">
                         
@@ -34,7 +34,8 @@
                         <button class="button2" (click)="addTag(tagInput)"> <i class="fas fa-plus"></i> </button>
                       </div>
 
-                  </ng-container>
+				  </ng-container>
+				</div>
                   
       
               </span>
@@ -53,7 +54,7 @@
                   <span>TL;DR <span>max 5</span></span>
                   <ul>
                       <li *ngFor="let tldr of selectedArticle.tldr; index as i">
-                          <input  [(ngModel)]='selectedArticle.tldr[i]'>
+                          <input  [(ngModel)]='selectedArticle.tldr[i].value'>
                           <span class="" (click)="removeTLDR(i)"><i class="fas fa-times"></i> </span>
                       </li>
                       <li *ngIf = "selectedArticle.tldr.length < 5">

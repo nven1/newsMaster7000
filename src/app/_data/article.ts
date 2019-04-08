@@ -6,7 +6,7 @@ export class Article {
         private category:Array<string>,
 
         private shortDescription:string,
-        private tldr:Array<string>,
+        private tldr:Array<object>,
         private paragraphs:Array<object>,
 
         private thumbnail:string,

@@ -58,7 +58,7 @@ export class ContentComponent implements OnInit {
   }
 
   addTLDR(event) {
-    this.selectedArticle.tldr.push(event.target.value);
+    this.selectedArticle.tldr.push({value:event.target.value});
     event.target.value = '';
   }
   removeTLDR(i) {

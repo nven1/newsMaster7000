@@ -10,8 +10,9 @@
     color: var(--mg);
 }
 .meta {
-    margin: 2vw 2vw 2vw 2vw;
+    padding: 2vw 2vw 2vw 2vw;
     grid-area: 1/1;
+    overflow: auto;
 }
 .content {
     padding: 2vw 2vw 2vw 2vw;
@@ -183,5 +184,5 @@
 /* UI KITS */
 
 .title {
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
