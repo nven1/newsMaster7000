@@ -64,7 +64,7 @@
       (click)="divClick(div)"
     >
         <ng-container *ngIf="div.class == 'paragraphs'">
-            <p *ngFor="let p of articles[div.class]">{{p}}</p>
+            <p *ngFor="let p of articles[div.class]">{{p.value}}</p>
           </ng-container>
           
           <ng-container *ngIf="div.class == 'tldr'">
@@ -77,9 +77,11 @@
             <div [ngClass]="setClass(div)">
                 <span>{{articles.author}}</span> 
                 <span>{{articles.date}}</span> 
-                <span>Category: {{articles.category}}</span> 
                 <span>
-                      <span *ngFor="let tag of articles.tags"> {{tag}} &nbsp; </span>
+                  Category:  <span *ngFor="let cat of articles.category"> {{cat}} &nbsp; </span>
+                </span>
+                <span>
+                  Tags  <span *ngFor="let tag of articles.tags"> {{tag}} &nbsp; </span>
                 </span>
             </div>
 

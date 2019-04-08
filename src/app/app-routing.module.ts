@@ -4,7 +4,7 @@ import { ContentComponent } from './content/content.component';
 import { DesignComponent } from './design/design.component';
 
 const routes: Routes = [
-  /* {path: '', redirectTo: '/wizard', pathMatch: 'full' }, */
+  {path: '', redirectTo: '/content', pathMatch: 'full' },
   {path:'content', component:ContentComponent},
   {path:'design', component:DesignComponent},
 ];

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, HostListener, ElementRef, OnChanges, ViewChild, Output, EventEmitter } from '@angular/core';
-import { WebconfService } from '../webconf.service';
-import { DataService } from '../data.service';
+import { WebconfService } from '../_data/webconf.service';
+import { DataService } from '../_data/data.service';
 
 @Component({
   selector: 'app-webpage',
@@ -137,6 +137,7 @@ export class WebpageComponent implements OnInit, OnChanges {
         this.temp.nativeElement.style.backgroundColor = 'green'
       } else {
         this.temp.nativeElement.style.backgroundColor = 'red';
+        this.sizeNewDivOK = false;
       }   
     }
 
@@ -144,6 +145,7 @@ export class WebpageComponent implements OnInit, OnChanges {
   @HostListener('mouseup', ['$event'])
   tileDragEnd(event) {
     (this.dragMode = 1) ? this.dragMode = 2:'';
+    (!this.sizeNewDivOK) ? this.selection = false: '';
   }
 
   createGrid(a,b) {

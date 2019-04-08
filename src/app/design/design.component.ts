@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WebconfService } from '../webconf.service';
-import { DataService } from '../data.service';
+import { WebconfService } from '../_data/webconf.service';
+import { DataService } from '../_data/data.service';
 
 @Component({
   selector: 'app-design',

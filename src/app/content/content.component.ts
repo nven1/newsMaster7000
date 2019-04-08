@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataService } from '../data.service';
+import { DataService } from '../_data/data.service';
 
 @Component({
   selector: 'app-content',
@@ -45,6 +45,13 @@ export class ContentComponent implements OnInit {
   removeTag(i) {
     this.selectedArticle.tags.splice(i, 1);
   }
+  addTag(input) {
+    if (input.value != '') {
+      this.selectedArticle.tags.push(input.value);
+      input.value = '';
+    }
+
+  }
   saveArticleChanges() {
     this.ss.articles[this.selectedArticleIndex] = this.selectedArticle;
     alert('saved');
@@ -63,6 +70,17 @@ export class ContentComponent implements OnInit {
   }
   tldrSwitch() {
     this.tldrEnabled = !this.tldrEnabled;
+  }
+
+  changeCategory(input) {
+    if (input.value != '') {
+      this.selectedArticle.category.push(input.value);
+      input.value = '';
+    }
+
+  }
+  removeCategory(i) {
+    this.selectedArticle.category.splice(i, 1);
   }
 
 }

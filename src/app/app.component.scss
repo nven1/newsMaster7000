@@ -4,23 +4,21 @@
     width: 100vw;
     display: grid;
     grid-template-rows: 10vh min-content 90vh;
-    background-color: $bw;
+    background-color: white;
 }
 nav {
     display: grid;
     grid-template-columns: max-content max-content max-content;
     text-align: center;
-    background-color: white;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    background-color: $mg;
+    color: white;
     box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.4);
     z-index: 999;
-    margin: 0 3vh;
     span {
         margin: 1vh 1vh;
     }
     a {
-        color: #517C81;
+        color: white;
         text-decoration: none;
         font-size: 1.2em;
         opacity: .7;
