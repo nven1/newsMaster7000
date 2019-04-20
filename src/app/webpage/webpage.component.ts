@@ -87,6 +87,13 @@ export class WebpageComponent implements OnInit, OnChanges {
 
   setGrid() {
     return this.wcs.Grid;
+/*     if (this.editorMode) {
+      return this.wcs.Grid;
+    }
+    else {
+      return this.wcs.fullGrid;
+    } */
+    
   }
 
   tileDragStart(event) {

@@ -72,13 +72,13 @@
           <div class="articleParagraphs">
               <span>Paragraphs</span>
               <ul>
-                  <li *ngFor="let par of selectedArticle.paragraphs;index as i; trackBy: j">
+                  <li *ngFor="let par of selectedArticle.paragraphs;index as i;">
                       <textarea  [(ngModel)]='selectedArticle.paragraphs[i].value' rows="6"></textarea>
                   </li>
                   <li>
                       <button 
                           class="button2"
-                          (keyup.enter)="addParagraph($event)"
+                          (keyup.enter)="addParagraph()"
                       >Add Paragraph</button>
                   </li>
               </ul>

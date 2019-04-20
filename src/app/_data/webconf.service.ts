@@ -41,6 +41,13 @@ export class WebconfService {
     'height':'80vh',
     'width':'80vw'
   }
+/*   fullGrid = {
+    'display':'grid',
+    'grid-template-rows': 'repeat(20, 1fr)',
+    'grid-template-columns': 'repeat(20, 1fr)',
+    'height':'100vh',
+    'width':'100vw'
+  } */
   Presets: any = [
     {
       name: 'test',

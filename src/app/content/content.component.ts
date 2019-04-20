@@ -83,4 +83,8 @@ export class ContentComponent implements OnInit {
     this.selectedArticle.category.splice(i, 1);
   }
 
+  addParagraph() {
+    
+  }
+
 }
