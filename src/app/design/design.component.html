@@ -25,13 +25,13 @@
 						<span>{{insertDiv}}</span>
 						<button (click)="elementStyle(null)"><i class="fas fa-times"></i></button>
 						<div class='styleOptions'>
-							<div class='textAlign'>
+							<div class='textAlign' *ngIf="insertDiv != 'title'">
 								<button (click)="setStyle('textAlignLeft')"><i class="fa fa-align-left"></i></button>
 								<button (click)="setStyle('textAlignRight')"><i class="fa fa-align-right"></i></button>
 								<button (click)="setStyle('textAlignCenter')"><i class="fa fa-align-center"></i></button>
 								<button (click)="setStyle('textAlignJustify')"><i class="fa fa-align-justify"></i></button>
 							</div>
-							<div class='padding'>
+							<div class='padding' *ngIf="insertDiv != 'title'">
 								<span>Padding</span>
 								<button (click)="setStyle('padding', 'minus')">-</button>
 								<button (click)="setStyle('padding', 'plus')">+</button>

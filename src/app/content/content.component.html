@@ -14,7 +14,7 @@
                     <div class="addTag" style="grid-area:2/1/2/3">
                         
                         <span>category title</span>
-                        <input type="text" #categoryInput> 
+                        <input type="text" (keyup.enter)="changeCategory(categoryInput)" #categoryInput> 
                         <button class="button2" (click)="changeCategory(categoryInput)"> <i class="fas fa-plus"></i> </button>
                     </div>
 
@@ -30,7 +30,7 @@
                       <div class="addTag">
                         
                         <span>tag title</span>
-                        <input type="text" #tagInput> 
+                        <input type="text" (keyup.enter)="addTag(tagInput)" #tagInput> 
                         <button class="button2" (click)="addTag(tagInput)"> <i class="fas fa-plus"></i> </button>
                       </div>
 
@@ -44,13 +44,7 @@
                   <textarea name="" maxlength="200"  rows="5" [(ngModel)]="selectedArticle.shortDescription"></textarea>
                   
               </div>
-              <span class="title">
-                  TL;DR Enabled 
-                  <button class="button2" (click) = "tldrSwitch()">
-                      {{ tldrEnabled ? 'True' : 'False'}}
-                  </button>
-              </span>
-              <div class="articleTLDR" *ngIf = "tldrEnabled">
+              <div class="articleTLDR">
                   <span>TL;DR <span>max 5</span></span>
                   <ul>
                       <li *ngFor="let tldr of selectedArticle.tldr; index as i">
@@ -78,7 +72,7 @@
                   <li>
                       <button 
                           class="button2"
-                          (keyup.enter)="addParagraph()"
+                          (click)="addParagraph()"
                       >Add Paragraph</button>
                   </li>
               </ul>

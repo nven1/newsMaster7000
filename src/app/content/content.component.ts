@@ -84,7 +84,7 @@ export class ContentComponent implements OnInit {
   }
 
   addParagraph() {
-    
+    this.selectedArticle.paragraphs.push({value:'Paragraph'});
   }
 
 }
