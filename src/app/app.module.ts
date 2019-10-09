@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { WebpageComponent } from './webpage/webpage.component';
 import { ContentComponent } from './content/content.component';
 import { DesignComponent } from './design/design.component';
-import { FinishComponent } from './finish/finish.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { FinishComponent } from './finish/finish.component';
     WebpageComponent,
     ContentComponent,
     DesignComponent,
-    FinishComponent
   ],
   imports: [
     BrowserModule,

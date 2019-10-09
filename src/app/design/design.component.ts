@@ -23,7 +23,7 @@ export class DesignComponent {
 
   currentElementStyles = null;
 
-  constructor(private wcs: WebconfService, private ss: DataService) {
+  constructor(private wcs: WebconfService) {
     this.presets = this.wcs.Presets;
   }
 

@@ -12,9 +12,8 @@ export class WebpageComponent implements OnInit, OnChanges {
   divs = null;
 
   @Input() selectedPreset = 0;
-  @Input() editorMode;
   @Input() insertDiv;
-
+  
   @Output() insertDivUpdate = new EventEmitter<string>();
 
   @ViewChild('temp') temp:ElementRef;
@@ -22,6 +21,7 @@ export class WebpageComponent implements OnInit, OnChanges {
   @ViewChild('divOverlay') divOverlay:ElementRef;
 
   articles;
+  editorMode;
 
 
   dragMode = 0;  // 0 not dragging, 1 currently dragging, 2 mouseup, drag finished, create div
@@ -43,6 +43,7 @@ export class WebpageComponent implements OnInit, OnChanges {
     this.createGrid(20,20);  
     this.articles = art.articles[0];
     this.editorMode = true;
+    console.log(this.presets);
   }
 
   ngOnChanges(changes) {
@@ -78,7 +79,9 @@ export class WebpageComponent implements OnInit, OnChanges {
 
   getPresetStyle() {
     if (this.selectedPreset!==undefined) {
+      console.log(this.presets[this.selectedPreset].style);
       return this.presets[this.selectedPreset].style;
+      
     }
   }
 
@@ -169,7 +172,6 @@ export class WebpageComponent implements OnInit, OnChanges {
   }
 
   setDiv() {
-    /* if (this.wcs.Presets[this.selectedPreset].divs.includes({id:'title'})) */
     this.wcs.Presets[this.selectedPreset].divs.push(
       {
         id:this.insertDiv,
@@ -206,7 +208,6 @@ export class WebpageComponent implements OnInit, OnChanges {
   
   tileClick() {
     this.insertDivUpdate.emit(null);
-    console.log(event);
   }
 
   setClass(div) {

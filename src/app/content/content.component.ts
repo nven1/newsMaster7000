@@ -13,7 +13,6 @@ export class ContentComponent implements OnInit {
   tags = [];
   selectedArticle;
   selectedArticleIndex = 0;
-  tldrEnabled = null;
 
   consoleOptions = ['article', 'category', 'tag'];
   consoleCurrent = 0;
@@ -29,19 +28,17 @@ export class ContentComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-    
-    console.log(this.selectedArticle);
   }
 
-  setArticle(i) {
+/*   setArticle(i) {
     this.selectedArticle = this.articles[i];
     this.selectedArticleIndex = i;
-  }
+  } */
 
-  consoleMode() {
+/*   consoleMode() {
     (this.consoleCurrent==2) ? this.consoleCurrent=0 : this.consoleCurrent++;
-  }
+  } */
+
   removeTag(i) {
     this.selectedArticle.tags.splice(i, 1);
   }
@@ -52,10 +49,10 @@ export class ContentComponent implements OnInit {
     }
 
   }
-  saveArticleChanges() {
+/*   saveArticleChanges() {
     this.ss.articles[this.selectedArticleIndex] = this.selectedArticle;
     alert('saved');
-  }
+  } */
 
   addTLDR(event) {
     this.selectedArticle.tldr.push({value:event.target.value});
@@ -65,12 +62,12 @@ export class ContentComponent implements OnInit {
     this.selectedArticle.tldr.splice(i, 1);
   }
 
-  toggleEditMode() {
+/*   toggleEditMode() {
     this.editModeContent = !this.editModeContent;
-  }
-  tldrSwitch() {
+  } */
+/*   tldrSwitch() {
     this.tldrEnabled = !this.tldrEnabled;
-  }
+  } */
 
   changeCategory(input) {
     if (input.value != '') {

@@ -60,7 +60,11 @@
       class="customDiv"
       [class]="div.class" 
       [id]="div.id"
-      [ngClass]="{'flexCenter': div.class == 'title', 'highlight':div.class == insertDiv}"
+      [ngClass]="
+          {
+            'flexCenter': div.class == 'title', 
+            'highlight':div.class == insertDiv
+          }"
       (click)="divClick(div)"
     >
         <ng-container *ngIf="div.class == 'paragraphs'">
@@ -96,8 +100,14 @@
       
     </div>
 
-    <div class="temp" #temp *ngIf="selection" style="background-color:black; color:white;">
-      <button (click)="setDiv()" *ngIf="dragMode == 2 && sizeNewDivOK" class="addButton">Set as {{insertDiv}}</button>
+    <div class="temp" #temp *ngIf="selection">
+      <button 
+        (click)="setDiv()" 
+        *ngIf="dragMode == 2 && sizeNewDivOK"
+        class="addButton"
+      >
+        Set as {{insertDiv}}
+      </button>
     </div>
 
 

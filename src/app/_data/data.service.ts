@@ -9,10 +9,10 @@ export class DataService {
   websiteName: string = 'neveNews';
 
   categories = ['tech', 'sport']
-  tags = ['apple', 'android', 'handball', 'FC Barcelonaddddddddddddd', 'Design', 'Croatia', 'Angular', 'Javascript', 'JS', 'HTML', 'Hearthstone', 'Warcraft', 'Blizzard']
+  tags = ['Design', 'Croatia', 'Angular', 'Javascript', 'JS', 'HTML']
   authors = ['Neven Zdelar']
 
-  articles = [
+  articles: Array<Article> = [
     new Article(
       1,
       'Vijest broj 1', 

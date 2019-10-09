@@ -7,30 +7,12 @@ export class WebconfService {
 
   /* elementTypes = ['title', 'tldr', 'shortDescription', 'paragraphs', 'gallery', 'meta']; */
   elements = [
-    {
-      id:'title',
-      title:'Title'
-    },
-    {
-      id:'tldr',
-      title:'TL;DR'
-    },
-    {
-      id:'shortDescription',
-      title:'Short Description'
-    },
-    {
-      id:'paragraphs',
-      title:'Paragraphs'
-    },
-    {
-      id:'gallery',
-      title:'Gallery'
-    },
-    {
-      id:'meta',
-      title:'Meta'
-    },
+    { id:'title', title:'Title' },
+    { id:'tldr', title:'TL;DR' },
+    { id:'shortDescription', title:'Short Description' },
+    { id:'paragraphs', title:'Paragraphs' },
+    { id:'gallery', title:'Gallery' },
+    { id:'meta', title:'Meta' },
   ]
 
   constructor() { }
@@ -53,10 +35,9 @@ export class WebconfService {
       name: 'test',
       style: {
         'display':'grid',
-        'grid-template-rows': 'repeat(20, 1fr)',
+        'grid-template-rows': 'repeat(25, 1fr)',
         'grid-template-columns': 'repeat(20, 1fr)',
-        'height':'100vh',
-        'width':'100%'
+        'background-color':'red',
       },
       activeElements:[],
       divs: []
@@ -68,8 +49,6 @@ export class WebconfService {
         'grid-template-rows': 'repeat(20, 1fr)',
         'grid-template-columns': 'repeat(20, 1fr)',
         'background-color':'gray',
-        'height':'100vh',
-        'width':'100%'
       },
       activeElements:['title', 'paragraphs', 'tldr', 'meta'],
       divs: [

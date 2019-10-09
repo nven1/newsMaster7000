@@ -1,5 +1,4 @@
 export class Article {
-
     constructor (
         private id:number,
         private title:string,
@@ -15,8 +14,6 @@ export class Article {
         private tags:Array<string>,
         private author:string,
         private date:string
-    ) {
-
-    }
+    ) {}
 }
 

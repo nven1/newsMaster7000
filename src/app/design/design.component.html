@@ -1,25 +1,25 @@
 <div class="designWrapper">
 	<div class="editor">
-				<ng-container *ngIf="detailMode == 'default'">
-					<div class="elementList">
-						<div 
-							class="element"
-							*ngFor="let element of wcs.elements"
-							[ngClass]="checkExist(element.id)"
-						>
-							<button (click)="elementClick(element.id)" >
-								{{element.title}}
-							</button> 
-							<button (click)="elementStyle(element.id)"><i class="fas fa-tint"></i></button>
-							<button (click)="elementResize(element.id)">
-								<i *ngIf="resizeMode && element.id == insertDiv" class="fa fa-undo"></i>
-								<i *ngIf="!resizeMode || element.id != insertDiv" class="fas fa-expand-arrows-alt"></i>
-							</button>
-							<button (click)="elementDelete(element.id)"><i class="fas fa-times-circle"></i></button>
-						</div>
+<ng-container *ngIf="detailMode == 'default'">
+	<div class="elementList">
+		<div 
+			class="element"
+			*ngFor="let element of wcs.elements"
+			[ngClass]="checkExist(element.id)"
+		>
+			<button (click)="elementClick(element.id)" >
+				{{element.title}}
+			</button> 
+			<button (click)="elementStyle(element.id)"><i class="fas fa-tint"></i></button>
+			<button (click)="elementResize(element.id)">
+				<i *ngIf="resizeMode && element.id == insertDiv" class="fa fa-undo"></i>
+				<i *ngIf="!resizeMode || element.id != insertDiv" class="fas fa-expand-arrows-alt"></i>
+			</button>
+			<button (click)="elementDelete(element.id)"><i class="fas fa-times-circle"></i></button>
+		</div>
 
-					</div>
-				</ng-container>
+	</div>
+</ng-container>
 				<ng-container *ngIf="detailMode == 'style' && insertDiv != null">
 					<div class='styleMode'>
 						<span>{{insertDiv}}</span>
@@ -78,12 +78,12 @@
 					</div>
 				</ng-container>
 	  </div>
-	  <app-webpage 
+	<app-webpage 
 		class="website gridCenter"
 		[selectedPreset] = "0" 
 		[insertDiv] = "insertDiv"
 		(insertDivUpdate)="insertDivUpdate($event)"
-  		>
-		</app-webpage>
+  	>
+	</app-webpage>
 </div>
 

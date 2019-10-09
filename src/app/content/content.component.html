@@ -4,22 +4,38 @@
                   <span>title</span>
                   <input type="text" [(ngModel)]='selectedArticle.title'> 
 			  </div>
-              <span class="articleCategory">
-                  <span class="title" style="grid-area:1/1">category</span>
-                  <div style="grid-area:1/2">
-                        <button class="button1" *ngFor="let cat of selectedArticle.category; index as i" (click)="removeCategory(i)">{{cat}} &nbsp; <i class="fas fa-times"></i> </button>
-                        
-                  </div>
-                  <ng-container *ngIf = "selectedArticle.category.length < 2">
-                    <div class="addTag" style="grid-area:2/1/2/3">
-                        
-                        <span>category title</span>
-                        <input type="text" (keyup.enter)="changeCategory(categoryInput)" #categoryInput> 
-                        <button class="button2" (click)="changeCategory(categoryInput)"> <i class="fas fa-plus"></i> </button>
-                    </div>
+<span class="articleCategory">
+    <span class="title" style="grid-area:1/1">category</span>
+    <div style="grid-area:1/2">
+        <button 
+            class="button1" 
+            *ngFor="let cat of selectedArticle.category; index as i" 
+            (click)="removeCategory(i)"
+        >
+            {{cat}} &nbsp; <i class="fas fa-times"></i> 
+        </button>
+        
+    </div>
+    <ng-container *ngIf = "selectedArticle.category.length < 2">
+        <div class="addTag" style="grid-area:2/1/2/3">
+            
+            <span>category title</span>
+            <input 
+                type="text"
+                (keyup.enter)="changeCategory(categoryInput)"
+                placeholder="Enter a category"
+                #categoryInput
+            > 
+            <button 
+                class="button2" 
+                (click)="changeCategory(categoryInput)"
+            >
+                <i class="fas fa-plus"></i> 
+            </button>
+        </div>
 
-                </ng-container>
-              </span>
+    </ng-container>
+</span>
               <span class="articleTags">
                   <span class="title">tags <span>max 5</span></span> 
                   <div>
@@ -30,7 +46,7 @@
                       <div class="addTag">
                         
                         <span>tag title</span>
-                        <input type="text" (keyup.enter)="addTag(tagInput)" #tagInput> 
+                        <input type="text" (keyup.enter)="addTag(tagInput)" placeholder="Enter a tag" #tagInput> 
                         <button class="button2" (click)="addTag(tagInput)"> <i class="fas fa-plus"></i> </button>
                       </div>
 
